@@ -1,5 +1,11 @@
 # dash-dog
 
+![](https://i.imgur.com/y7CcA4U.png)
+
+## Deployment
+https://dash-dog.vercel.app/
+
+
 ## Project setup
 ```
 yarn install
