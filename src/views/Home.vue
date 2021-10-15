@@ -101,8 +101,8 @@
             <h3 class="tertiary--text">Informações dos Pets:</h3>
           </v-col>
         </v-row>
-        <v-row>
-          <v-col cols="12">
+        <v-row justify="center">
+          <v-col cols="12" xl="8">
             <List />
           </v-col>
         </v-row>

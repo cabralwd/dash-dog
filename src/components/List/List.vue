@@ -1,22 +1,37 @@
 <template>
-  <v-data-table
-    v-if="infos"
-    :headers="headers"
-    :items="infos"
-    :items-per-page="8"
-    class="elevation-2"
-  ></v-data-table>
+  <div>
+    <v-card v-if="animals">
+      <v-card-title>
+        <v-text-field
+          v-model="search"
+          append-icon="mdi-magnify"
+          label="Search"
+          single-line
+          hide-details
+        ></v-text-field>
+      </v-card-title>
+      <v-data-table
+        :headers="headers"
+        :items="animals"
+        :search="search"
+        :items-per-page="8"
+      ></v-data-table>
+    </v-card>
+    <div class="display-1 text-center my-10" v-else>
+      Não há dados no momento!
+    </div>
+  </div>
 </template>
 
 <script>
 import { mapState } from "vuex";
-import moment from "moment";
 
 export default {
   name: "List",
   data() {
     return {
       showIn: false,
+      search: "",
       headers: [
         {
           text: "Nome",
@@ -28,32 +43,10 @@ export default {
         { text: "Aniversário", value: "birth" },
         { text: "Tutor", value: "owner" },
       ],
-      infos: [],
     };
   },
   computed: {
     ...mapState(["animals", "loaded"]),
-  },
-  methods: {
-    animalsFormat() {
-      console.log("oi");
-      let arr = this.animals.map((item) => {
-        item.birth = this.formatandoData(item.birth);
-      });
-      console.log(arr);
-      this.infos = arr;
-    },
-    formatandoData(data) {
-      return moment(
-        new Date(data),
-        ["ddd MMM DD YYYY HH:mm:ss Z+HHmm"],
-        "pt-br",
-        true
-      ).fromNow();
-    },
-  },
-  created() {
-    // this.animalsFormat();
   },
 };
 </script>
