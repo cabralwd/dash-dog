@@ -10,6 +10,11 @@ const routes = [
     name: "Home",
     component: Home,
   },
+  {
+    path: "/compromissos/:id",
+    name: "Compromissos",
+    component: () => import("../views/Compromissos.vue"),
+  },
 ];
 
 const router = new VueRouter({

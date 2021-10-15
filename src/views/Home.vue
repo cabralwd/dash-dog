@@ -1,14 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      style="background: linear-gradient(90deg, #68babf 0%, #2f80cf 100%)"
-      dark
-    >
-      <v-spacer></v-spacer>
-      <span class="text-uppercase font-weight-black display-1">Dashdog</span>
-      <v-spacer></v-spacer>
-    </v-app-bar>
+    <Header :voltar="false" />
 
     <v-main>
       <v-container tag="section">
@@ -119,6 +111,7 @@ import { mapState } from "vuex";
 import Types from "@/components/Dashboard/Types.vue";
 import Calls from "@/components/Dashboard/Calls.vue";
 import List from "@/components/List/List.vue";
+import Header from "@/components/Header/Header.vue";
 
 export default {
   name: "Home",
@@ -126,6 +119,7 @@ export default {
     Types,
     Calls,
     List,
+    Header,
   },
   computed: {
     ...mapState(["nome", "loaded"]),
